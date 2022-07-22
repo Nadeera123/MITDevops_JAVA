@@ -23,7 +23,9 @@ public class StudentController {
 	@GetMapping("/getAllStudents")
 	@ResponseBody
 	public List<Student> getAllStudents(){
+		System.out.println("Fetching all Students");
 		return repo.findAllStudents();
+		
 	}
 
 	@PostMapping("/addStudent")
