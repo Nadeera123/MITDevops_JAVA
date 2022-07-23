@@ -34,8 +34,11 @@ public class StudentController {
 		
 		try {
 			
+			System.out.println(student);
 			int maxid=repo.getMaxStudentId();
+			System.out.println("maxid="+maxid);
 			student.setId(maxid+1);
+			System.out.println(student);
 			repo.save(student);
 			
 		} catch (Exception e) {
