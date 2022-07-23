@@ -23,7 +23,7 @@ public class StudentController {
 	@GetMapping("/getAllStudents")
 	@ResponseBody
 	public List<Student> getAllStudents(){
-		System.out.println("Fetching all Students now");
+		System.out.println("going to get all students");
 		return repo.findAllStudents();
 		
 	}
