@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      db: pgadmin
+  template:
+    metadata:
+      labels:
+        db: pgadmin
+    spec:
+      containers:
+      - env:
+        - name: PGADMIN_DEFAULT_EMAIL
+          value: nudayanga123456@gmail.com
+        - name: PGADMIN_DEFAULT_PASSWORD
+          value: admin
+        - name: PGADMIN_PORT
+          value: "80"
+        image: dpage/pgadmin4:3.6
+        imagePullPolicy: IfNotPresent
+        name: pgadmin
+        ports:
+        - containerPort: 80
+        
