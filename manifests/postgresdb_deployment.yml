@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    db: restapidb
+  name: postgres
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      db: restapidb
+  template:
+    metadata:
+      labels:
+        db: restapidb
+    spec:
+      containers:
+      - image: postgres:latest
+        name: postgres
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "abc123"
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: posgres-data
+
+      volumes:
+      - name: posgres-data
+        hostPath:
+          path: /mnt/nfs/posgres_data
+          type: Directory
