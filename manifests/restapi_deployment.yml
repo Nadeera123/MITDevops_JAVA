@@ -15,7 +15,7 @@ spec:
         app: restapi
     spec:
       containers:
-      - image: nadeera94/demorestapi:v1.1
+      - image: nadeera94/demorestapi:v1.0
         name: demorestapi
         ports:
         - containerPort: 8080
