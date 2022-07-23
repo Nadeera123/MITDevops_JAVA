@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: restapi
+  name: restapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: restapi
+  template:
+    metadata:
+      labels:
+        app: restapi
+    spec:
+      containers:
+      - image: nadeera94/demorestapi:v1.1
+        name: demorestapi
+        ports:
+        - containerPort: 8080
