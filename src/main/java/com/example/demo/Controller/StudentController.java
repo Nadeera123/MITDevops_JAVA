@@ -33,15 +33,11 @@ public class StudentController {
 		String status="success";
 		
 		try {
-			Student s = repo.findById(student.getId());
-			if(s==null) {
-				repo.save(student);
-			}
-			else {
-				int maxid=repo.getMaxStudentId();
-				student.setId(maxid+1);
-				repo.save(student);
-			}
+			
+			int maxid=repo.getMaxStudentId();
+			student.setId(maxid+1);
+			repo.save(student);
+			
 		} catch (Exception e) {
 			status="failed";
 		}
