@@ -5,7 +5,7 @@ metadata:
     app: restapi
   name: restapi
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: restapi
